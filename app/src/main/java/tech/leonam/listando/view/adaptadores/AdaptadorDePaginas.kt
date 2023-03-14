@@ -17,7 +17,6 @@ class AdaptadorDePaginas(fragmentActivity: FragmentActivity) :
         fazendo = Fazendo()
         feito = Feito()
     }
-
     override fun createFragment(position: Int): Fragment {
         iniciarComponentes()
         return when (position) {
@@ -26,7 +25,6 @@ class AdaptadorDePaginas(fragmentActivity: FragmentActivity) :
             else -> lista!!
         }
     }
-
     override fun getItemCount(): Int {
         return 3
     }
