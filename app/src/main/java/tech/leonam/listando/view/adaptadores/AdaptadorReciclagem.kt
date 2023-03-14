@@ -23,7 +23,9 @@ class AdaptadorReciclagem(
             holder.titulo.text = tarefa.titulo
             holder.descricao.text = tarefa.descricao
             holder.prioridade.text = tarefa.prioridade
-            holder.excluir.setOnClickListener { ExcluirController(tarefa.id!!, context) }
+            holder.excluir.setOnClickListener {
+                ExcluirController(tarefa.id!!, context)
+            }
         } catch (ex: IndexOutOfBoundsException) {
             holder.titulo.setText(R.string.nenhuma_tarefa)
             holder.descricao.setText(R.string.inserar_novas_tarefas)
