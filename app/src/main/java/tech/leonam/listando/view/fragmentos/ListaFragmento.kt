@@ -28,7 +28,6 @@ class ListaFragmento : Fragment() {
             startActivity(intencao)
         }
     }
-
     private fun iniciarComponentes(view: View) {
         floatingActionButton = view.findViewById(R.id.addTarefa)
     }

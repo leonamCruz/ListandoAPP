@@ -46,7 +46,6 @@ public class Principal extends AppCompatActivity {
             public void onTabSelected(TabLayout.Tab tab) {
                 view.setCurrentItem(tab.getPosition());
             }
-
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {}
             @Override
