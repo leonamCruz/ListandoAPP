@@ -41,7 +41,6 @@
         android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="7sp"
         android:orientation="horizontal"
         android:paddingTop="8sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -61,6 +60,7 @@
             android:textSize="25sp" />
 
         <ImageButton
+            android:id="@+id/excluir"
             android:layout_width="50sp"
             android:layout_height="48sp"
             android:layout_marginStart="5sp"

@@ -28,4 +28,6 @@
     <string name="exemplo">Exemplo</string>
     <string name="texto_aleatorio">Eu sou um texto muito cabuloso para exemplificar essa bosta bostejadora hahaha!!!???</string>
     <string name="botao_de_apagar">Botao de apagar</string>
+    <string name="nenhuma_tarefa">Nenhuma tarefa foi encontrada</string>
+    <string name="inserar_novas_tarefas">Insira novas tarefas no botao \"mais\"</string>
 </resources>

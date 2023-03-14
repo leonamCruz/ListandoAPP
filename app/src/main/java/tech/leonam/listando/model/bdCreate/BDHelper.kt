@@ -1,4 +1,4 @@
-package tech.leonam.listando.model.BDCreate
+package tech.leonam.listando.model.bdCreate
 
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase

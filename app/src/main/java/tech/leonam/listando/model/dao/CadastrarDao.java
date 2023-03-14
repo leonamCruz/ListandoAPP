@@ -1,11 +1,11 @@
-package tech.leonam.listando.model.Dao;
+package tech.leonam.listando.model.dao;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
-import tech.leonam.listando.model.BDCreate.BDHelper;
-import tech.leonam.listando.model.Entidade.ListaEntidade;
+import tech.leonam.listando.model.bdCreate.BDHelper;
+import tech.leonam.listando.model.entidade.ListaEntidade;
 
 public class CadastrarDao {
     private static final String TABLE_LISTA = "tarefas";
