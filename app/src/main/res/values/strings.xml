@@ -20,4 +20,7 @@
     <string name="prioridade">Prioridade:</string>
     <string name="salvar_tarefa">Salvar Tarefa</string>
     <string name="botao_para_adicionar_tarefas">Botao para adicionar tarefas</string>
+    <string name="tente_novamente">Verifique os campos e tente novamente.</string>
+    <string name="adicione_titulo">Por favor, adicione um Titulo!</string>
+    <string name="criado_com_sucesso">Tarefa Criada com Sucesso</string>
 </resources>

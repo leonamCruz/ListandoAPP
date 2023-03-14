@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 
 import tech.leonam.listando.R;
 public class FeitoFragmento extends Fragment {
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

@@ -1,7 +1,7 @@
 package tech.leonam.listando.model.Entidade
 
-class ListaEntitdade {
+open class ListaEntidade {
     var titulo: String? = null
     var descricao: String? = null
-    var prioridade: Byte = 0
+    var prioridade: Byte? = null
 }
