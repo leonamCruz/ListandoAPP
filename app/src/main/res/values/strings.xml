@@ -25,4 +25,7 @@
     <string name="criado_com_sucesso">Tarefa Criada com Sucesso</string>
     <string name="nomeBanco">bd</string>
     <string name="sem_prioridade">Sem Prioridade</string>
+    <string name="exemplo">Exemplo</string>
+    <string name="texto_aleatorio">Eu sou um texto muito cabuloso para exemplificar essa bosta bostejadora hahaha!!!???</string>
+    <string name="botao_de_apagar">Botao de apagar</string>
 </resources>
