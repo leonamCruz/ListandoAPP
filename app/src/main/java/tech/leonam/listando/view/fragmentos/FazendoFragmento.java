@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import tech.leonam.listando.R;
-public class Fazendo extends Fragment {
+public class FazendoFragmento extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

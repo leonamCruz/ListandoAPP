@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 
 import tech.leonam.listando.R;
 
-public class Lista extends Fragment {
+public class ListaFragmento extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
