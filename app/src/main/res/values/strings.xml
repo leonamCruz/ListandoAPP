@@ -23,4 +23,5 @@
     <string name="tente_novamente">Verifique os campos e tente novamente.</string>
     <string name="adicione_titulo">Por favor, adicione um Titulo!</string>
     <string name="criado_com_sucesso">Tarefa Criada com Sucesso</string>
+    <string name="nomeBanco">bd</string>
 </resources>
