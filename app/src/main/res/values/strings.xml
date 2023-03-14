@@ -24,4 +24,5 @@
     <string name="adicione_titulo">Por favor, adicione um Titulo!</string>
     <string name="criado_com_sucesso">Tarefa Criada com Sucesso</string>
     <string name="nomeBanco">bd</string>
+    <string name="sem_prioridade">Sem Prioridade</string>
 </resources>

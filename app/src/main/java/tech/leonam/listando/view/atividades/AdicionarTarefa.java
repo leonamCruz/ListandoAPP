@@ -32,16 +32,16 @@ public class AdicionarTarefa extends AppCompatActivity {
                var titulo = this.titulo.getText().toString().trim();
                if (!titulo.isBlank()) {
                     var descricao = this.descricao.getText().toString();
-                    byte opc;
+                    String opc;
 
                     if(baixa.isChecked()){
-                        opc = 0;
+                        opc = getString(R.string.prioridade_baixa);
                     }else if(media.isChecked()){
-                        opc = 1;
+                        opc = getString(R.string.prioridade_media);
                     }else if(alta.isChecked()){
-                        opc = 2;
+                        opc = getString(R.string.prioridade_alta);
                     }else{
-                        opc = 3; //Sem prioridade.
+                        opc = getString(R.string.sem_prioridade);
                     }
 
                     var entidade = new AtravessadorListaEntidade();//Encapsulamento
@@ -49,7 +49,7 @@ public class AdicionarTarefa extends AppCompatActivity {
                     entidade.setDescricao(descricao);
                     entidade.setPrioridade(opc);
 
-                    new CadastroController(entidade);
+                    new CadastroController(entidade,e.getContext());
 
                     Toast.makeText(e.getContext(), R.string.criado_com_sucesso, Toast.LENGTH_SHORT).show();
 
