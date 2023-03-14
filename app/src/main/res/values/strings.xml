@@ -9,4 +9,15 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="botao_de_adicionar">Botao de adicionar</string>
+    <string name="title_activity_adicionar_tarefa">AdicionarTarefa</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="titulo_da_tarefa">Titulo da Tarefa</string>
+    <string name="descricao_da_tarefa">Descricao da Tarefa</string>
+    <string name="prioridade_baixa">Prioridade baixa</string>
+    <string name="prioridade_media">Prioridade Media</string>
+    <string name="prioridade_alta">Prioridade Alta</string>
+    <string name="prioridade">Prioridade:</string>
+    <string name="salvar_tarefa">Salvar Tarefa</string>
+    <string name="botao_para_adicionar_tarefas">Botao para adicionar tarefas</string>
 </resources>
