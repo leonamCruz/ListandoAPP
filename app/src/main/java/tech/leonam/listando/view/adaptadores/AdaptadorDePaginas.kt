@@ -1,41 +1,33 @@
-package tech.leonam.listando.view.adaptadores;
+package tech.leonam.listando.view.adaptadores
 
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
-import androidx.viewpager2.adapter.FragmentStateAdapter;
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
+import androidx.viewpager2.adapter.FragmentStateAdapter
+import tech.leonam.listando.view.fragmentos.Fazendo
+import tech.leonam.listando.view.fragmentos.Feito
+import tech.leonam.listando.view.fragmentos.Lista
 
-import tech.leonam.listando.view.fragmentos.Fazendo;
-import tech.leonam.listando.view.fragmentos.Feito;
-import tech.leonam.listando.view.fragmentos.Lista;
-
-public class AdaptadorDePaginas extends FragmentStateAdapter {
-    private Lista lista;
-    private Fazendo fazendo;
-    private Feito feito;
-    public AdaptadorDePaginas(@NonNull FragmentActivity fragmentActivity) {
-        super(fragmentActivity);
+class AdaptadorDePaginas(fragmentActivity: FragmentActivity) :
+    FragmentStateAdapter(fragmentActivity) {
+    private var lista: Lista? = null
+    private var fazendo: Fazendo? = null
+    private var feito: Feito? = null
+    private fun iniciarComponentes() {
+        lista = Lista()
+        fazendo = Fazendo()
+        feito = Feito()
     }
 
-    private void iniciarComponentes() {
-        lista = new Lista();
-        fazendo = new Fazendo();
-        feito = new Feito();
-    }
-
-    @NonNull
-    @Override
-    public Fragment createFragment(int position) {
-        iniciarComponentes();
-        switch (position){
-            default: return lista;
-            case 1: return fazendo;
-            case 2: return feito;
+    override fun createFragment(position: Int): Fragment {
+        iniciarComponentes()
+        return when (position) {
+            1 -> fazendo!!
+            2 -> feito!!
+            else -> lista!!
         }
     }
 
-    @Override
-    public int getItemCount() {
-        return 3;
+    override fun getItemCount(): Int {
+        return 3
     }
 }
