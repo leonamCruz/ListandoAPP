@@ -18,7 +18,9 @@ class AdaptadorReciclagem(
     private val listener: InterfaceExcluir
 ) : RecyclerView.Adapter<SuporteReciclagem>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SuporteReciclagem {
-        return SuporteReciclagem(LayoutInflater.from(context).inflate(R.layout.layout_reciclavel, parent, false))
+        return SuporteReciclagem(
+            LayoutInflater.from(context).inflate(R.layout.layout_reciclavel, parent, false)
+        )
     }
 
     override fun onBindViewHolder(holder: SuporteReciclagem, position: Int) {
@@ -27,13 +29,13 @@ class AdaptadorReciclagem(
             holder.titulo.text = tarefa.titulo
             holder.descricao.text = tarefa.descricao
             holder.prioridade.text = tarefa.prioridade
-            if(tarefa.prioridade.equals(holder.itemView.context.getString(R.string.prioridade_baixa))){
+            if (tarefa.prioridade.equals(holder.itemView.context.getString(R.string.prioridade_baixa))) {
                 holder.prioridade.setTextColor(Color.GREEN)
-            }else if(tarefa.prioridade.equals(holder.itemView.context.getString(R.string.prioridade_media))){
+            } else if (tarefa.prioridade.equals(holder.itemView.context.getString(R.string.prioridade_media))) {
                 holder.prioridade.setTextColor(Color.YELLOW)
-            }else if(tarefa.prioridade.equals(holder.itemView.context.getString(R.string.prioridade_alta))){
+            } else if (tarefa.prioridade.equals(holder.itemView.context.getString(R.string.prioridade_alta))) {
                 holder.prioridade.setTextColor(Color.RED)
-            }else if(tarefa.prioridade.equals(holder.itemView.context.getString(R.string.sem_prioridade))){
+            } else if (tarefa.prioridade.equals(holder.itemView.context.getString(R.string.sem_prioridade))) {
                 holder.prioridade.setTextColor(Color.GRAY)
             }
 
@@ -44,10 +46,10 @@ class AdaptadorReciclagem(
                 builder.setPositiveButton("Sim") { _, _ ->
                     ExcluirController(tarefa.id!!, context)
                     listener.onExcluirItem()
-                    makeText(context,"Removido com Sucesso",Toast.LENGTH_SHORT).show()
+                    makeText(context, "Removido com Sucesso", Toast.LENGTH_SHORT).show()
                 }
 
-                builder.setNegativeButton("Não") { _, _ ->}
+                builder.setNegativeButton("Não") { _, _ -> }
                 builder.create().show()
             }
         } catch (ex: IndexOutOfBoundsException) {

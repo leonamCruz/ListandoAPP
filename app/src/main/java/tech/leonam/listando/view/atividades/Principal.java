@@ -3,9 +3,15 @@ package tech.leonam.listando.view.atividades;
 import android.graphics.Color;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.Objects;
@@ -16,7 +22,7 @@ import tech.leonam.listando.view.adaptadores.AdaptadorDePaginas;
 public class Principal extends AppCompatActivity {
     private TabLayout tabLayout;
     private ViewPager2 view;
-
+    private AdView adView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +36,10 @@ public class Principal extends AppCompatActivity {
         adicionarTabListener();
         arrastaProLado();
 
+        MobileAds.initialize(this, initializationStatus -> {});
+        adView = findViewById(R.id.adView);
+        var adRequest = new AdRequest.Builder().build();
+        adView.loadAd(adRequest);
     }
     private void arrastaProLado() {
         view.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
