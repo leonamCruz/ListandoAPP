@@ -2,6 +2,7 @@ package tech.leonam.listando.view.adaptadores
 
 import android.app.AlertDialog
 import android.content.Context
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
@@ -26,6 +27,16 @@ class AdaptadorReciclagem(
             holder.titulo.text = tarefa.titulo
             holder.descricao.text = tarefa.descricao
             holder.prioridade.text = tarefa.prioridade
+            if(tarefa.prioridade.equals(holder.itemView.context.getString(R.string.prioridade_baixa))){
+                holder.prioridade.setTextColor(Color.GREEN)
+            }else if(tarefa.prioridade.equals(holder.itemView.context.getString(R.string.prioridade_media))){
+                holder.prioridade.setTextColor(Color.YELLOW)
+            }else if(tarefa.prioridade.equals(holder.itemView.context.getString(R.string.prioridade_alta))){
+                holder.prioridade.setTextColor(Color.RED)
+            }else if(tarefa.prioridade.equals(holder.itemView.context.getString(R.string.sem_prioridade))){
+                holder.prioridade.setTextColor(Color.GRAY)
+            }
+
             holder.excluir.setOnClickListener {
                 val builder = AlertDialog.Builder(context)
                 builder.setTitle("Excluir item")

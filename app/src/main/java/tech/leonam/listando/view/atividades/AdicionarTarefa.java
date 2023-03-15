@@ -28,6 +28,7 @@ public class AdicionarTarefa extends AppCompatActivity {
         clicks();
     }
     private void clicks() {
+
         salvar.setOnClickListener(e->{
             try {
                var titulo = this.titulo.getText().toString().trim();
