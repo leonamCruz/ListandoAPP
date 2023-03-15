@@ -14,8 +14,7 @@ class AdaptadorDePaginas(fragmentActivity: FragmentActivity) :
     private var feitoFragmento: FeitoFragmento? = null
     private fun iniciarComponentes() {
         listaFragmento = ListaFragmento()
-        fazendoFragmento =
-            FazendoFragmento()
+        fazendoFragmento = FazendoFragmento()
         feitoFragmento = FeitoFragmento()
     }
     override fun createFragment(position: Int): Fragment {

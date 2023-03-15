@@ -1,5 +1,6 @@
 package tech.leonam.listando.view.atividades;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -52,7 +53,7 @@ public class AdicionarTarefa extends AppCompatActivity {
                     new CadastroController(entidade,e.getContext());
 
                     Toast.makeText(e.getContext(), R.string.criado_com_sucesso, Toast.LENGTH_SHORT).show();
-
+                    setResult(Activity.RESULT_OK);
                     finish();
                } else {
                     Toast.makeText(e.getContext(), getString(R.string.adicione_titulo), Toast.LENGTH_SHORT).show();
