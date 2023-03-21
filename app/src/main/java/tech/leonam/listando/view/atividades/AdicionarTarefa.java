@@ -51,7 +51,7 @@ public class AdicionarTarefa extends AppCompatActivity {
                     entidade.setDescricao(descricao);
                     entidade.setPrioridade(opc);
 
-                    new CadastroController(entidade,e.getContext());
+                    new CadastroController(entidade,e.getContext(),"paraFazer");
 
                     Toast.makeText(e.getContext(), R.string.criado_com_sucesso, Toast.LENGTH_SHORT).show();
                     setResult(Activity.RESULT_OK);

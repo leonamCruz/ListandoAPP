@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 import tech.leonam.listando.controller.AtravessadorListaEntidade;
 import tech.leonam.listando.model.bdCreate.BDHelper;
+import tech.leonam.listando.model.entidade.ListaEntidade;
 
 public class PegaTarefasDao {
     private static final String TABLE_LISTA = "paraFazer";

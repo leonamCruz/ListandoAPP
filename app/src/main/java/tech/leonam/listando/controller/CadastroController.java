@@ -5,7 +5,7 @@ import android.content.Context;
 import tech.leonam.listando.model.dao.CadastrarDao;
 
 public class CadastroController {
-    public CadastroController(AtravessadorListaEntidade entidade, Context context) throws Exception {
-        new CadastrarDao(entidade, context);
+    public CadastroController(AtravessadorListaEntidade entidade, Context context, String paraFazer) throws Exception {
+        new CadastrarDao(context).cadastrar(entidade,paraFazer);
     }
 }

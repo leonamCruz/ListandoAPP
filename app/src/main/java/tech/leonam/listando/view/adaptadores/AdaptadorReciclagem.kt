@@ -56,6 +56,7 @@ class AdaptadorReciclagem(
             }
             holder.trocarDeLado.setOnClickListener {
                 TrocarLadoController().paraMeio(tarefa.id!!,context)
+                makeText(context,"Beleza! :)",Toast.LENGTH_SHORT).show()
             }
 
         } catch (ex: IndexOutOfBoundsException) {
