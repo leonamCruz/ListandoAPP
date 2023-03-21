@@ -9,7 +9,7 @@ import tech.leonam.listando.controller.AtravessadorListaEntidade;
 import tech.leonam.listando.model.bdCreate.BDHelper;
 
 public class PegaTarefasDao {
-    private static final String TABLE_LISTA = "tarefas";
+    private static final String TABLE_LISTA = "paraFazer";
     private static final String PEGAR_TUDO ="select * from " + TABLE_LISTA;
     private final SQLiteDatabase sqLiteDatabase;
     public PegaTarefasDao(Context context) {

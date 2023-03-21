@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -23,10 +24,9 @@ class ListaFragmento : Fragment(),InterfaceExcluir {
     private var recyclerView:RecyclerView?=null
     private var list: ArrayList<AtravessadorListaEntidade>?=null
     private var view: View?=null
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    private var trocarParaOLado: ImageView?=null
+    private var adaptadorReciclagem: AdaptadorReciclagem?=null
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,savedInstanceState: Bundle?): View? {
         view = inflater.inflate(R.layout.fragment_lista, container, false)
         iniciarComponentes()
         iniciarReciclagem()
@@ -37,7 +37,8 @@ class ListaFragmento : Fragment(),InterfaceExcluir {
         val layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.VERTICAL,false)
         recyclerView!!.setHasFixedSize(false)
         recyclerView!!.layoutManager = layoutManager
-        recyclerView!!.adapter = AdaptadorReciclagem(list!!,context,this)
+        adaptadorReciclagem = AdaptadorReciclagem(list!!,context,this)
+        recyclerView!!.adapter = adaptadorReciclagem
     }
 
     private fun click() {
@@ -45,6 +46,7 @@ class ListaFragmento : Fragment(),InterfaceExcluir {
             val intencao = Intent(context,AdicionarTarefa::class.java)
             requisicaoActivityResult.launch(intencao)
         }
+
     }
     private fun iniciarComponentes() {
         recyclerView = view?.requireViewById(R.id.reciclagem)
@@ -57,7 +59,6 @@ class ListaFragmento : Fragment(),InterfaceExcluir {
             iniciarReciclagem()
         }
     }
-
     override fun onExcluirItem() {
         iniciarComponentes()
         iniciarReciclagem()

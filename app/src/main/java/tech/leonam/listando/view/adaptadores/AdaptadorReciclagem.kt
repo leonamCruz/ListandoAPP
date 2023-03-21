@@ -11,11 +11,13 @@ import androidx.recyclerview.widget.RecyclerView
 import tech.leonam.listando.R
 import tech.leonam.listando.controller.AtravessadorListaEntidade
 import tech.leonam.listando.controller.ExcluirController
+import tech.leonam.listando.controller.TrocarLadoController
 
 class AdaptadorReciclagem(
     private val lista: ArrayList<AtravessadorListaEntidade>,
     private val context: Context?,
-    private val listener: InterfaceExcluir
+    private val listener: InterfaceExcluir,
+    var posicao: Int? = null
 ) : RecyclerView.Adapter<SuporteReciclagem>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SuporteReciclagem {
         return SuporteReciclagem(
@@ -52,6 +54,10 @@ class AdaptadorReciclagem(
                 builder.setNegativeButton("Não") { _, _ -> }
                 builder.create().show()
             }
+            holder.trocarDeLado.setOnClickListener {
+                TrocarLadoController().paraMeio(tarefa.id!!,context)
+            }
+
         } catch (ex: IndexOutOfBoundsException) {
             holder.titulo.setText(R.string.nenhuma_tarefa)
             holder.descricao.setText(R.string.inserar_novas_tarefas)

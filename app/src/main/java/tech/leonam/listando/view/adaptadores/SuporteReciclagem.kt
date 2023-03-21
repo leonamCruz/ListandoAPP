@@ -11,11 +11,13 @@ class SuporteReciclagem(itemView: View) : RecyclerView.ViewHolder(itemView) {
     val descricao: TextView
     val prioridade: TextView
     val excluir: ImageView
+    val trocarDeLado: ImageView
 
     init {
         titulo = itemView.requireViewById(R.id.tituloSet)
         descricao = itemView.requireViewById(R.id.descricaoSet)
         prioridade = itemView.requireViewById(R.id.prioridadeSet)
         excluir = itemView.requireViewById(R.id.excluir)
+        trocarDeLado = itemView.requireViewById(R.id.trocarDeLado)
     }
 }

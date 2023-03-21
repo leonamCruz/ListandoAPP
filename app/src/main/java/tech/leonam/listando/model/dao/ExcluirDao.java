@@ -5,7 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 import tech.leonam.listando.model.bdCreate.BDHelper;
 public class ExcluirDao {
-    private static final String TABLE_LISTA = "tarefas";
+    private static final String TABLE_LISTA = "paraFazer";
     private final SQLiteDatabase sqLiteDatabase;
     public ExcluirDao(int id, Context context) throws Exception {
         var bdHelper = new BDHelper(context);

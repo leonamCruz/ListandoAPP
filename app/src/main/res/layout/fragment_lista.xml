@@ -10,7 +10,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/reciclagem"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_marginTop="50sp"
         android:paddingBottom="50sp"
         app:layout_constraintBottom_toBottomOf="@+id/addTarefa"
