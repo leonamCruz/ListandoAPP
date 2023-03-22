@@ -5,10 +5,11 @@ import android.database.sqlite.SQLiteDatabase;
 
 import tech.leonam.listando.model.bdCreate.BDHelper;
 public class ExcluirDao {
-    private static final String TABLE_LISTA = "paraFazer";
+    private String TABLE_LISTA;
     private final SQLiteDatabase sqLiteDatabase;
-    public ExcluirDao(int id, Context context) throws Exception {
+    public ExcluirDao(int id, Context context,String tabela) throws Exception {
         var bdHelper = new BDHelper(context);
+        TABLE_LISTA = tabela;
         sqLiteDatabase = bdHelper.getWritableDatabase();
         excluir(id);
         bdHelper.close();

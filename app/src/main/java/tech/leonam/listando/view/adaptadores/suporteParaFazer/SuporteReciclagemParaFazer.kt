@@ -1,4 +1,4 @@
-package tech.leonam.listando.view.adaptadores
+package tech.leonam.listando.view.adaptadores.suporteParaFazer
 
 import android.view.View
 import android.widget.ImageView
@@ -6,7 +6,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import tech.leonam.listando.R
 
-class SuporteReciclagem(itemView: View) : RecyclerView.ViewHolder(itemView) {
+class SuporteReciclagemParaFazer(itemView: View) : RecyclerView.ViewHolder(itemView) {
     val titulo: TextView
     val descricao: TextView
     val prioridade: TextView

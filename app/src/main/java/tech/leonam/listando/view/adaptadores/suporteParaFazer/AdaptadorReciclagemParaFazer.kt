@@ -1,4 +1,4 @@
-package tech.leonam.listando.view.adaptadores
+package tech.leonam.listando.view.adaptadores.suporteParaFazer
 
 import android.app.AlertDialog
 import android.content.Context
@@ -12,20 +12,20 @@ import tech.leonam.listando.R
 import tech.leonam.listando.controller.AtravessadorListaEntidade
 import tech.leonam.listando.controller.ExcluirController
 import tech.leonam.listando.controller.TrocarLadoController
+import tech.leonam.listando.view.adaptadores.Interfaces
 
-class AdaptadorReciclagem(
+class AdaptadorReciclagemParaFazer(
     private val lista: ArrayList<AtravessadorListaEntidade>,
     private val context: Context?,
-    private val listener: InterfaceExcluir,
-    var posicao: Int? = null
-) : RecyclerView.Adapter<SuporteReciclagem>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SuporteReciclagem {
-        return SuporteReciclagem(
+    private val listener: Interfaces
+) : RecyclerView.Adapter<SuporteReciclagemParaFazer>() {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SuporteReciclagemParaFazer {
+        return SuporteReciclagemParaFazer(
             LayoutInflater.from(context).inflate(R.layout.layout_reciclavel, parent, false)
         )
     }
 
-    override fun onBindViewHolder(holder: SuporteReciclagem, position: Int) {
+    override fun onBindViewHolder(holder: SuporteReciclagemParaFazer, position: Int) {
         try {
             val tarefa = lista[position]
             holder.titulo.text = tarefa.titulo
@@ -46,8 +46,8 @@ class AdaptadorReciclagem(
                 builder.setTitle("Excluir item")
                 builder.setMessage("Você tem certeza de que deseja excluir este item?")
                 builder.setPositiveButton("Sim") { _, _ ->
-                    ExcluirController(tarefa.id!!, context)
-                    listener.onExcluirItem()
+                    ExcluirController(tarefa.id!!, context,"paraFazer")
+                    listener.atualizar()
                     makeText(context, "Removido com Sucesso", Toast.LENGTH_SHORT).show()
                 }
 
@@ -56,6 +56,7 @@ class AdaptadorReciclagem(
             }
             holder.trocarDeLado.setOnClickListener {
                 TrocarLadoController().paraMeio(tarefa.id!!,context)
+                listener.atualizar()
                 makeText(context,"Beleza! :)",Toast.LENGTH_SHORT).show()
             }
 

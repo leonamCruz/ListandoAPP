@@ -1,19 +1,12 @@
 package tech.leonam.listando.view.fragmentos;
 
-import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import tech.leonam.listando.view.adaptadores.Interfaces;
 
-import tech.leonam.listando.R;
-public class FazendoFragmento extends Fragment {
-
+public class FazendoFragmento extends Fragment implements Interfaces {
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_fazendo, container, false);
+    public void atualizar() {
+
     }
 }

@@ -46,7 +46,7 @@ public class AdicionarTarefa extends AppCompatActivity {
                         opc = getString(R.string.sem_prioridade);
                     }
 
-                    var entidade = new AtravessadorListaEntidade();//Encapsulamento
+                    var entidade = new AtravessadorListaEntidade();
                     entidade.setTitulo(titulo);
                     entidade.setDescricao(descricao);
                     entidade.setPrioridade(opc);

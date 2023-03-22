@@ -8,15 +8,13 @@ import tech.leonam.listando.model.bdCreate.BDHelper;
 import tech.leonam.listando.model.entidade.ListaEntidade;
 
 public class CadastrarDao {
-    private static final String TABLE_LISTA = "paraFazer";
     private final SQLiteDatabase sqLiteDatabase;
-    public CadastrarDao(Context context) throws Exception {
+    public CadastrarDao(Context context) {
         var bdHelper = new BDHelper(context);
         sqLiteDatabase = bdHelper.getWritableDatabase();
-        bdHelper.close();
     }
 
-    public void cadastrar(ListaEntidade entidade,String tabela) throws Exception {
+    public void cadastrar(ListaEntidade entidade, String tabela) throws Exception {
         try {
             var values = new ContentValues();
 
@@ -25,6 +23,7 @@ public class CadastrarDao {
             values.put("prioridade",entidade.getPrioridade());
 
             sqLiteDatabase.insert(tabela,null,values);
+            sqLiteDatabase.close();
         }catch (Exception e){
             throw new Exception(e);
         }
