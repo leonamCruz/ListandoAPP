@@ -45,7 +45,7 @@ class AdaptadorReciclagemConcluido(
                 builder.setTitle("Excluir item")
                 builder.setMessage("Você tem certeza de que deseja excluir este item?")
                 builder.setPositiveButton("Sim") { _, _ ->
-                    ExcluirController(tarefa.id!!, context,"fazendo")
+                    ExcluirController(tarefa.id!!, context,"concluido")
                     listener.atualizar()
                     makeText(context, "Removido com Sucesso", Toast.LENGTH_SHORT).show()
                 }
