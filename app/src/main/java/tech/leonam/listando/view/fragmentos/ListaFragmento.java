@@ -42,6 +42,13 @@ public class ListaFragmento extends Fragment implements Interfaces {
         return view;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        iniciarComponentes();
+        iniciarReciclagem();
+    }
+
     private void iniciarReciclagem() {
         LinearLayoutManager layoutManager = new LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false);
         recyclerView.setHasFixedSize(false);

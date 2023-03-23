@@ -50,7 +50,6 @@ class AdaptadorReciclagemParaFazer(
                     listener.atualizar()
                     makeText(context, "Removido com Sucesso", Toast.LENGTH_SHORT).show()
                 }
-
                 builder.setNegativeButton("Não") { _, _ -> }
                 builder.create().show()
             }
