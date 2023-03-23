@@ -29,21 +29,12 @@ public class Principal extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal);
-        iniciarBanner();
         Objects.requireNonNull(getSupportActionBar()).hide();
         getWindow().setStatusBarColor(Color.BLACK);
         iniciarComponentes();
         adicionarTabListener();
         arrastaProLado();
     }
-
-    private void iniciarBanner() {
-        MobileAds.initialize(this, initializationStatus -> {});
-        AdView adView = findViewById(R.id.adView);
-        var adRequest = new AdRequest.Builder().build();
-        adView.loadAd(adRequest);
-    }
-
     private void arrastaProLado() {
         view.registerOnPageChangeCallback(new OnPageChangeCallback() {
             @Override
