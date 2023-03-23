@@ -8,4 +8,7 @@ public class TrocarLadoController {
     public void paraMeio(int id,Context context) throws Exception {
         new AlterarLado(context).meio(id);
     }
+    public void paraFim(int id,Context context) throws Exception{
+        new AlterarLado(context).fim(id);
+    }
 }

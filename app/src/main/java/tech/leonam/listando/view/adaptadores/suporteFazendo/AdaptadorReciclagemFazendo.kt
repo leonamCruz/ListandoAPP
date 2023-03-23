@@ -55,7 +55,7 @@ class AdaptadorReciclagemFazendo(
                 builder.create().show()
             }
             holder.trocarDeLado.setOnClickListener {
-                TrocarLadoController().paraMeio(tarefa.id!!,context)
+                TrocarLadoController().paraFim(tarefa.id!!,context)
                 listener.atualizar()
                 makeText(context,"Beleza! :)",Toast.LENGTH_SHORT).show()
             }

@@ -10,10 +10,11 @@ import tech.leonam.listando.controller.AtravessadorListaEntidade;
 import tech.leonam.listando.model.bdCreate.BDHelper;
 
 public class PegaTarefasDao {
-    private static final String TABLE_LISTA = "paraFazer";
+    private static final String TABLE_LISTA0 = "paraFazer";
     private static final String TABLE_LISTA1 = "fazendo";
+    private static final String TABLE_LISTA2 = "concluido";
     private static final String PEGAR_TUDO = "select * from ";
-    private static final String PEGAR_PARA_FAZER_COM_WHERE = "select * from " + TABLE_LISTA + " where id = ?";
+    private static final String WHERE_ID = " where id = ?";
     private final SQLiteDatabase sqLiteDatabase;
 
     public PegaTarefasDao(Context context) {
@@ -22,17 +23,21 @@ public class PegaTarefasDao {
     }
 
     public ArrayList<AtravessadorListaEntidade> pegarParaFazer() {
-        var cursor = sqLiteDatabase.rawQuery(PEGAR_TUDO + TABLE_LISTA, new String[]{});
+        var cursor = sqLiteDatabase.rawQuery(PEGAR_TUDO + TABLE_LISTA0, new String[]{});
         return encapsular(cursor);
     }
 
     public ArrayList<AtravessadorListaEntidade> pegarParaFazer(int id) {
-        var cursor = sqLiteDatabase.rawQuery(PEGAR_PARA_FAZER_COM_WHERE, new String[]{String.valueOf(id)});
+        var cursor = sqLiteDatabase.rawQuery(PEGAR_TUDO + TABLE_LISTA0 + WHERE_ID, new String[]{String.valueOf(id)});
         return encapsular(cursor);
     }
 
     public ArrayList<AtravessadorListaEntidade> pegarFazendo() {
         var cursor = sqLiteDatabase.rawQuery(PEGAR_TUDO + TABLE_LISTA1, new String[]{});
+        return encapsular(cursor);
+    }
+    public ArrayList<AtravessadorListaEntidade> pegarFazendo(int id) {
+        var cursor = sqLiteDatabase.rawQuery(PEGAR_TUDO + TABLE_LISTA1 + WHERE_ID, new String[]{String.valueOf(id)});
         return encapsular(cursor);
     }
 
@@ -53,5 +58,10 @@ public class PegaTarefasDao {
             return list;
         }
         return new ArrayList<>();
+    }
+
+    public ArrayList<AtravessadorListaEntidade> pegarConcluido() {
+        var cursor = sqLiteDatabase.rawQuery(PEGAR_TUDO + TABLE_LISTA2,new String[]{});
+        return encapsular(cursor);
     }
 }

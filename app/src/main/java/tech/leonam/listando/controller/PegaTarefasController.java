@@ -11,6 +11,9 @@ public class PegaTarefasController {
     public PegaTarefasController(Context context) {
         this.context = context;
     }
+    public ArrayList<AtravessadorListaEntidade> getConcluido(){
+        return new PegaTarefasDao(context).pegarConcluido();
+    }
     public ArrayList<AtravessadorListaEntidade> getParaFazer(){
         return new PegaTarefasDao(context).pegarParaFazer();
     }
