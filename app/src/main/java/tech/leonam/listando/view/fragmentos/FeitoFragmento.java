@@ -51,7 +51,10 @@ public class FeitoFragmento extends Fragment implements Interfaces{
     private void iniciarComponentes() {
         recyclerView = view.findViewById(R.id.reciclagem3);
         list = new PegaTarefasController(requireContext()).getConcluido();
+        trocarParaOLado = view.findViewById(R.id.trocarDeLado);
     }
+
+
 
     private final ActivityResultLauncher<Intent> requisicaoActivityResult = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), resultado -> {
         if (resultado.getResultCode() == Activity.RESULT_OK) {

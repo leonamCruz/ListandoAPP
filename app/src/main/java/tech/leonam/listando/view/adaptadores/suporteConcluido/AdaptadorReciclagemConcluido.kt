@@ -4,6 +4,7 @@ import android.app.AlertDialog
 import android.content.Context
 import android.graphics.Color
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import android.widget.Toast.makeText
@@ -41,24 +42,29 @@ class AdaptadorReciclagemConcluido(
             }
 
             holder.excluir.setOnClickListener {
-                val builder = AlertDialog.Builder(context)
-                builder.setTitle("Excluir item")
-                builder.setMessage("Você tem certeza de que deseja excluir este item?")
-                builder.setPositiveButton("Sim") { _, _ ->
+                val builder = AlertDialog.Builder(context!!)
+                builder.setTitle(context.getString(R.string.excluir_item))
+                builder.setMessage(context.getString(R.string.certeza_excluir))
+                builder.setPositiveButton(context.getString(R.string.sim)) { _, _ ->
                     ExcluirController(tarefa.id!!, context,"concluido")
                     listener.atualizar()
-                    makeText(context, "Removido com Sucesso", Toast.LENGTH_SHORT).show()
+                    makeText(context, context.getString(R.string.removido_sucesso), Toast.LENGTH_SHORT).show()
                 }
 
-                builder.setNegativeButton("Não") { _, _ -> }
+                builder.setNegativeButton(context.getString(R.string.nao)) { _, _ -> }
                 builder.create().show()
             }
+            holder.trocarDeLado.visibility = View.INVISIBLE
             holder.trocarDeLado.isClickable = false
 
         } catch (ex: IndexOutOfBoundsException) {
             holder.titulo.setText(R.string.nenhuma_tarefa)
             holder.descricao.setText(R.string.inserar_novas_tarefas)
             holder.prioridade.text = ""
+            holder.trocarDeLado.visibility = View.INVISIBLE
+            holder.trocarDeLado.isClickable = false
+            holder.excluir.visibility = View.INVISIBLE
+            holder.excluir.isClickable = false
         }
     }
 

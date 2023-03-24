@@ -8,10 +8,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.interstitial.InterstitialAd;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.Objects;
@@ -22,7 +18,6 @@ import tech.leonam.listando.view.adaptadores.AdaptadorDePaginas;
 public class Principal extends AppCompatActivity {
     private TabLayout tabLayout;
     private ViewPager2 view;
-    private InterstitialAd interstitialAdd;
     private Activity currentActivity;
 
     @Override
