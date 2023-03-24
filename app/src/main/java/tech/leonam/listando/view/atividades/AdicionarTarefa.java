@@ -1,6 +1,7 @@
 package tech.leonam.listando.view.atividades;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -8,6 +9,8 @@ import android.widget.RadioButton;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.Objects;
 
 import tech.leonam.listando.R;
 import tech.leonam.listando.controller.AtravessadorListaEntidade;
@@ -24,11 +27,12 @@ public class AdicionarTarefa extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_adicionar_tarefa);
+        Objects.requireNonNull(getSupportActionBar()).hide();
+        getWindow().setStatusBarColor(Color.TRANSPARENT);
         iniciarComponentes();
         clicks();
     }
     private void clicks() {
-
         salvar.setOnClickListener(e->{
             try {
                var titulo = this.titulo.getText().toString().trim();
