@@ -19,15 +19,15 @@ import java.util.ArrayList;
 import tech.leonam.listando.R;
 import tech.leonam.listando.controller.AtravessadorListaEntidade;
 import tech.leonam.listando.controller.PegaTarefasController;
+import tech.leonam.listando.view.adaptadores.AdaptadorGeralReciclagem;
 import tech.leonam.listando.view.adaptadores.Interfaces;
-import tech.leonam.listando.view.adaptadores.suporteConcluido.AdaptadorReciclagemConcluido;
 
 public class FeitoFragmento extends Fragment implements Interfaces{
     private RecyclerView recyclerView;
     private ArrayList<AtravessadorListaEntidade> list;
     private View view;
     private ImageView trocarParaOLado;
-    private AdaptadorReciclagemConcluido adaptadorReciclagemConcluido;
+    private AdaptadorGeralReciclagem adaptadorReciclagemConcluido;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_feito, container, false);
@@ -41,7 +41,7 @@ public class FeitoFragmento extends Fragment implements Interfaces{
         LinearLayoutManager layoutManager = new LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false);
         recyclerView.setHasFixedSize(false);
         recyclerView.setLayoutManager(layoutManager);
-        adaptadorReciclagemConcluido = new AdaptadorReciclagemConcluido(list, requireContext(), this);
+        adaptadorReciclagemConcluido = new AdaptadorGeralReciclagem(list, requireContext(), this,AdaptadorGeralReciclagem.CONCLUIDO);
         recyclerView.setAdapter(adaptadorReciclagemConcluido);
     }
 

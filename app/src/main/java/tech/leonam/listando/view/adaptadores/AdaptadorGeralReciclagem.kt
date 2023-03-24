@@ -1,4 +1,4 @@
-package tech.leonam.listando.view.adaptadores.suporteConcluido
+package tech.leonam.listando.view.adaptadores
 
 import android.app.AlertDialog
 import android.content.Context
@@ -12,20 +12,21 @@ import androidx.recyclerview.widget.RecyclerView
 import tech.leonam.listando.R
 import tech.leonam.listando.controller.AtravessadorListaEntidade
 import tech.leonam.listando.controller.ExcluirController
-import tech.leonam.listando.view.adaptadores.Interfaces
+import tech.leonam.listando.controller.TrocarLadoController
 
-class AdaptadorReciclagemConcluido(
+class AdaptadorGeralReciclagem(
     private val lista: ArrayList<AtravessadorListaEntidade>,
     private val context: Context?,
-    private val listener: Interfaces
-) : RecyclerView.Adapter<SuporteReciclagemParaConcluido>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SuporteReciclagemParaConcluido {
-        return SuporteReciclagemParaConcluido(
+    private val listener: Interfaces,
+    private val opc: Int
+) : RecyclerView.Adapter<SuporteGeralReciclagem>() {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SuporteGeralReciclagem {
+        return SuporteGeralReciclagem(
             LayoutInflater.from(context).inflate(R.layout.layout_reciclavel, parent, false)
         )
     }
 
-    override fun onBindViewHolder(holder: SuporteReciclagemParaConcluido, position: Int) {
+    override fun onBindViewHolder(holder: SuporteGeralReciclagem, position: Int) {
         try {
             val tarefa = lista[position]
             holder.titulo.text = tarefa.titulo
@@ -46,16 +47,29 @@ class AdaptadorReciclagemConcluido(
                 builder.setTitle(context.getString(R.string.excluir_item))
                 builder.setMessage(context.getString(R.string.certeza_excluir))
                 builder.setPositiveButton(context.getString(R.string.sim)) { _, _ ->
-                    ExcluirController(tarefa.id!!, context,"concluido")
+                    when (opc) {
+                        1 -> ExcluirController(tarefa.id!!, context, "paraFazer")
+                        2 -> ExcluirController(tarefa.id!!, context, "fazendo")
+                        3 -> ExcluirController(tarefa.id!!, context, "concluido")
+                    }
                     listener.atualizar()
-                    makeText(context, context.getString(R.string.removido_sucesso), Toast.LENGTH_SHORT).show()
+                    makeText(
+                        context,
+                        context.getString(R.string.removido_sucesso),
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
-
                 builder.setNegativeButton(context.getString(R.string.nao)) { _, _ -> }
                 builder.create().show()
             }
-            holder.trocarDeLado.visibility = View.INVISIBLE
-            holder.trocarDeLado.isClickable = false
+            holder.trocarDeLado.setOnClickListener {
+                when (opc) {
+                    1 -> TrocarLadoController().paraMeio(tarefa.id!!, context!!)
+                    2 -> TrocarLadoController().paraFim(tarefa.id!!, context!!)
+                }
+                listener.atualizar()
+                makeText(context!!, context.getString(R.string.beleza), Toast.LENGTH_SHORT).show()
+            }
 
         } catch (ex: IndexOutOfBoundsException) {
             holder.titulo.setText(R.string.nenhuma_tarefa)
@@ -72,5 +86,11 @@ class AdaptadorReciclagemConcluido(
         return if (lista.size == 0) {
             1
         } else lista.size
+    }
+
+    companion object {
+        const val PARA_FAZER = 1
+        const val FAZENDO = 2
+        const val CONCLUIDO = 3
     }
 }

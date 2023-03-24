@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import tech.leonam.listando.R;
 import tech.leonam.listando.controller.AtravessadorListaEntidade;
 import tech.leonam.listando.controller.PegaTarefasController;
-import tech.leonam.listando.view.adaptadores.suporteParaFazer.AdaptadorReciclagemParaFazer;
+import tech.leonam.listando.view.adaptadores.AdaptadorGeralReciclagem;
 import tech.leonam.listando.view.adaptadores.Interfaces;
 import tech.leonam.listando.view.atividades.AdicionarTarefa;
 
@@ -31,7 +31,7 @@ public class ListaFragmento extends Fragment implements Interfaces {
     private ArrayList<AtravessadorListaEntidade> list;
     private View view;
     private ImageView trocarParaOLado;
-    private AdaptadorReciclagemParaFazer adaptadorReciclagemParaFazer;
+    private AdaptadorGeralReciclagem adaptadorReciclagemParaFazer;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -53,7 +53,7 @@ public class ListaFragmento extends Fragment implements Interfaces {
         LinearLayoutManager layoutManager = new LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false);
         recyclerView.setHasFixedSize(false);
         recyclerView.setLayoutManager(layoutManager);
-        adaptadorReciclagemParaFazer = new AdaptadorReciclagemParaFazer(list, requireContext(), this);
+        adaptadorReciclagemParaFazer = new AdaptadorGeralReciclagem(list, requireContext(), this,AdaptadorGeralReciclagem.PARA_FAZER);
         recyclerView.setAdapter(adaptadorReciclagemParaFazer);
     }
 
