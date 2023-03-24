@@ -33,7 +33,6 @@ public class FeitoFragmento extends Fragment implements Interfaces{
         view = inflater.inflate(R.layout.fragment_feito, container, false);
         iniciarComponentes();
         iniciarReciclagem();
-        click();
         return view;
     }
 
@@ -43,10 +42,6 @@ public class FeitoFragmento extends Fragment implements Interfaces{
         recyclerView.setLayoutManager(layoutManager);
         adaptadorReciclagemConcluido = new AdaptadorGeralReciclagem(list, requireContext(), this,AdaptadorGeralReciclagem.CONCLUIDO);
         recyclerView.setAdapter(adaptadorReciclagemConcluido);
-    }
-
-    private void click() {
-
     }
     private void iniciarComponentes() {
         recyclerView = view.findViewById(R.id.reciclagem3);

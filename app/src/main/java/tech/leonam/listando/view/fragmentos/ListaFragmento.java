@@ -31,6 +31,7 @@ public class ListaFragmento extends Fragment implements Interfaces {
     private ArrayList<AtravessadorListaEntidade> list;
     private View view;
     private ImageView trocarParaOLado;
+    private ImageView edit;
     private AdaptadorGeralReciclagem adaptadorReciclagemParaFazer;
 
     @Override

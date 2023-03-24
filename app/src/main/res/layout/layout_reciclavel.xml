@@ -59,10 +59,10 @@
             android:text="@string/prioridade"
             android:textSize="18sp" />
 
-        <ImageButton
+        <ImageView
             android:id="@+id/excluir"
-            android:layout_width="50sp"
-            android:layout_height="48sp"
+            android:layout_width="40sp"
+            android:layout_height="40sp"
             android:layout_marginStart="5sp"
             android:contentDescription="@string/botao_de_apagar"
             android:scaleType="centerCrop"
@@ -70,12 +70,9 @@
 
         <ImageView
             android:id="@+id/trocarDeLado"
-            android:layout_width="50sp"
-            android:layout_height="48sp"
+            android:layout_width="40sp"
+            android:layout_height="40sp"
             android:layout_marginStart="5sp"
             app:srcCompat="@android:drawable/ic_menu_send" />
     </LinearLayout>
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

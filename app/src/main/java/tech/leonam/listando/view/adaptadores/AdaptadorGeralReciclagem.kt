@@ -42,6 +42,11 @@ class AdaptadorGeralReciclagem(
                 holder.prioridade.setTextColor(Color.GRAY)
             }
 
+            if(opc == 3){
+                holder.trocarDeLado.visibility = View.INVISIBLE
+                holder.trocarDeLado.isClickable = false
+            }
+
             holder.excluir.setOnClickListener {
                 val builder = AlertDialog.Builder(context!!)
                 builder.setTitle(context.getString(R.string.excluir_item))
@@ -70,7 +75,6 @@ class AdaptadorGeralReciclagem(
                 listener.atualizar()
                 makeText(context!!, context.getString(R.string.beleza), Toast.LENGTH_SHORT).show()
             }
-
         } catch (ex: IndexOutOfBoundsException) {
             holder.titulo.setText(R.string.nenhuma_tarefa)
             holder.descricao.setText(R.string.inserar_novas_tarefas)

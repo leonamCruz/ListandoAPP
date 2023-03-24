@@ -33,7 +33,6 @@ public class FazendoFragmento extends Fragment implements Interfaces {
         view = inflater.inflate(R.layout.fragment_fazendo, container, false);
         iniciarComponentes();
         iniciarReciclagem();
-        click();
         return view;
     }
 
@@ -43,10 +42,6 @@ public class FazendoFragmento extends Fragment implements Interfaces {
         recyclerView.setLayoutManager(layoutManager);
         adaptadorReciclagemFazendo = new AdaptadorGeralReciclagem(list, requireContext(), this,AdaptadorGeralReciclagem.FAZENDO);
         recyclerView.setAdapter(adaptadorReciclagemFazendo);
-    }
-
-    private void click() {
-
     }
     private void iniciarComponentes() {
         recyclerView = view.findViewById(R.id.reciclagem2);
